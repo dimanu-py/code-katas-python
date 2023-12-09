@@ -16,3 +16,7 @@ def test_return_2():
 def test_return_4():
     numbers = fizzbuzz(4)
     assert numbers == "4"
+    
+def test_fizz():
+    numbers = fizzbuzz(3)
+    assert numbers == "fizz"
