@@ -18,3 +18,7 @@ def test_fizz(number):
     result = fizzbuzz(number)
     assert result == "fizz"
     
+    
+def test_buzz():
+    result = fizzbuzz(5)
+    assert result == "buzz"
