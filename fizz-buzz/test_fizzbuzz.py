@@ -18,7 +18,10 @@ def test_fizz(number):
     result = fizzbuzz(number)
     assert result == "fizz"
     
-    
-def test_buzz():
-    result = fizzbuzz(5)
+@pytest.mark.parametrize(
+    "number", 
+    [5, 10]
+)    
+def test_buzz(number):
+    result = fizzbuzz(number)
     assert result == "buzz"
