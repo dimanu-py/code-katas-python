@@ -20,7 +20,7 @@ def test_fizz(number):
     
 @pytest.mark.parametrize(
     "number", 
-    [5, 10]
+    [5, 10, 20, 25, 35]
 )    
 def test_buzz(number):
     result = fizzbuzz(number)
