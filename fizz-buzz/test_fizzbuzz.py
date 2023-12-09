@@ -20,3 +20,9 @@ def test_return_4():
 def test_fizz():
     numbers = fizzbuzz(3)
     assert numbers == "fizz"
+    
+    numbers = fizzbuzz(6)
+    assert numbers == "fizz"
+    
+    numbers = fizzbuzz(9)
+    assert numbers == "fizz"
