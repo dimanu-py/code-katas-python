@@ -1,28 +1,20 @@
+import pytest
 from fizzbuzz import fizzbuzz
 
 
-def test_return_number():
-    numbers = fizzbuzz(1)
-    assert numbers == "1"
-    
-    numbers = fizzbuzz(2)
-    assert numbers == "2"
+@pytest.mark.parametrize(
+    "number, expected", 
+    [(1, "1"), (2, "2"), (4, "4")]
+)
+def test_return_number(number, expected):
+    result = fizzbuzz(number)
+    assert result == expected
 
-    numbers = fizzbuzz(2)
-    assert numbers == "2"
+@pytest.mark.parametrize(
+    "number", 
+    [3, 6, 9, 12, 18]
+)
+def test_fizz(number):
+    result = fizzbuzz(number)
+    assert result == "fizz"
     
-    numbers = fizzbuzz(4)
-    assert numbers == "4"
-    
-def test_fizz():
-    numbers = fizzbuzz(3)
-    assert numbers == "fizz"
-    
-    numbers = fizzbuzz(6)
-    assert numbers == "fizz"
-    
-    numbers = fizzbuzz(9)
-    assert numbers == "fizz"
-    
-    numbers = fizzbuzz(12)
-    assert numbers == "fizz"
