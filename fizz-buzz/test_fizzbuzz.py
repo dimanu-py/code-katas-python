@@ -23,3 +23,6 @@ def test_fizz():
     
     numbers = fizzbuzz(9)
     assert numbers == "fizz"
+    
+    numbers = fizzbuzz(12)
+    assert numbers == "fizz"
