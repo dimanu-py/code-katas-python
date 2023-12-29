@@ -12,6 +12,10 @@ The project will have one folder per kata. Each folder will contain the followin
 * **test_kata.py**: unit tests for the kata.
 * **kata.py**: implementation of the kata.
 
+## Solved Katas
+
+1. [Fizz Buzz](https://github.com/dimanu-py/code-katas-python/tree/main/fizz-buzz)
+2. [Leap Year](https://github.com/dimanu-py/code-katas-python/tree/main/leap-year)
 
 ## Resources
 
