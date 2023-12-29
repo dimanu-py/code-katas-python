@@ -1,5 +1,7 @@
-# Fizz Buzz Description
+# 🐝 FizzBuzz Kata 🐝
 
+## Description
+  
 Write a function that:
 - Takes numbers from 1 to 100 
 - Outputs them as strings
@@ -8,6 +10,6 @@ Write a function that:
 - For numbers that are multiples of both 3 and 5, it returns "FizzBuzz"
 
 
-# Objective
+## Objective
 
-The main objective of this kata is to initiate on TDD.
+The main objective of this kata is to learn how to apply TDD.
