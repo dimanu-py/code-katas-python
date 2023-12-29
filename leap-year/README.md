@@ -3,12 +3,26 @@
 ## Description
   
 Write a function that:
-- Returns True or False depending on whether its input integer is a leap year or not.
+- Receives an integer as input.
+- Returns `True` if the input is a leap year
+- Returns `False` if the input is not a leap year
 
-> A leap year is defined as one that is divisible by 4, but is not otherwise divisible by 100 unless it is also divisible by 400.
+A leap year must follow these rules:
+
+- A year is not leap if it is not divisible by 4
+- A year is leap if it is divisible by 4
+- A year is leap if it is divisible by 400
+- A year is not leap if it is divisible by 100 but not by 400
 
 ## Objective
 
 The main objective of this kata is to improve logic skills in Python.
 
 Additionally, TDD is going to be used as methodology to develop the function.
+
+## Examples
+
+- 1997 is not leap (not divisible by 4)
+- 1996 is leap (divisible by 4)
+- 1600 is leap (divisible by 400)
+- 1800 is not leap (divisible by 4, divisible by 100, NOT divisible by 400)
