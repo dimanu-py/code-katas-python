@@ -1,5 +1,4 @@
 
 
-class Year:
-    def is_leap_year(self, year: int) -> bool:
-        return False
+def is_leap_year(year: int) -> bool:
+    return year % 4 == 0
