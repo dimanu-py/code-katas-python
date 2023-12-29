@@ -1,13 +1,25 @@
-# Description
+# Coding Katas in Python
 
-Write a function that:
-- Takes numbers from 1 to 100 
-- Outputs them as strings
-- For multiples of 3, it returns "Fizz" instead of the number
-- For multiples of 5, it returns "Buzz" instead of the number
-- For numbers that are multiples of both 3 and 5, it returns "FizzBuzz"
+[![Python](https://img.shields.io/badge/Python-3.11+-yellow?style=for-the-badge&logo=python&logoColor=white&labelColor=101010)](https://python.org)
+
+## Project
+
+This repository contains a collection of coding katas solved in Python. The main objective of this repository is to practice and learn Python.
+
+The project will have one folder per kata. Each folder will contain the following files:
+
+* **README.md**: description of the kata and what we want to learn or practice.
+* **test_kata.py**: unit tests for the kata.
+* **kata.py**: implementation of the kata.
 
 
-# Objective
+## Resources
 
-The main objective of this kata is to initiate on TDD.
+![Python](https://img.shields.io/github/stars/python/cpython?label=Python&style=social)
+
+* Language: [Python](https://www.python.org/)
+
+
+### Visit my GitHub profile for more projects 🚀
+
+[![Web](https://img.shields.io/badge/GitHub-Dimanu.py-14a1f0?style=for-the-badge&logo=github&logoColor=white&labelColor=101010)](https://github.com/dimanu-py)
