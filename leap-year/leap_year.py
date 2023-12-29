@@ -7,4 +7,12 @@ def is_leap_year(year: int) -> bool:
     A year is leap if is divisible by 4, and if is divisible by 100 and by 400.
     This means that a year is leap if is divisible by 4 and not by 100, or if is divisible by 400.
     """
-    return year % 4 == 0 and (year % 100 != 0 or year % 400 == 0)
+    return year_divisible_by(4, year) and (year_not_divisible_by(100, year) or year_divisible_by(400, year))
+
+
+def year_divisible_by(number: int, year: int) -> bool:
+    return year % number == 0
+
+
+def year_not_divisible_by(number: int, year: int) -> bool:
+    return year % number != 0
