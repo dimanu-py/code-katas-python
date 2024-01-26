@@ -1,13 +1,12 @@
 from roman_numerals import roman_numeral
+import pytest
 
 
 class TestRomanNumeralShould:
 
-    def test_convert_1_to_I(self) -> None:
-        assert roman_numeral(1) == 'I'
+    @pytest.mark.parametrize("number, expected", [(1, "I"), (2, "II"), (3, "III")])
+    def test_convert_number_to_numeral(self, number: int, expected: str) -> None:
 
-    def test_convert_2_to_II(self) -> None:
-        assert roman_numeral(2) == 'II'
+        numeral = roman_numeral(number)
 
-    def test_convert_3_to_III(self) -> None:
-        assert roman_numeral(3) == 'III'
+        assert numeral == expected
