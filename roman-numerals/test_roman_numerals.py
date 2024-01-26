@@ -8,3 +8,6 @@ class TestRomanNumeralShould:
 
     def test_convert_2_to_II(self) -> None:
         assert roman_numeral(2) == 'II'
+
+    def test_convert_3_to_III(self) -> None:
+        assert roman_numeral(3) == 'III'
