@@ -10,4 +10,10 @@ def roman_numeral(number: int) -> str:
     if number == 5:
         return "V"
 
+    if number == 6:
+        return "VI"
+
+    if number == 7:
+        return "VII"
+
     return 'I' * number
