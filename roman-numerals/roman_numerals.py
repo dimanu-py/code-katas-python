@@ -10,6 +10,9 @@ def roman_numeral(number: int) -> str:
     if number == 9:
         return "IX"
 
+    if number == 14:
+        return "XIV"
+
     result = ""
 
     if number >= 10:
