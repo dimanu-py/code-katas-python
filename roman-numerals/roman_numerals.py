@@ -7,16 +7,9 @@ def roman_numeral(number: int) -> str:
     if number == 4:
         return "IV"
 
-    if number == 5:
-        return "V"
+    result = ""
+    if number >= 5:
+        result = "V"
+        number -= 5
 
-    if number == 6:
-        return "VI"
-
-    if number == 7:
-        return "VII"
-
-    if number == 8:
-        return "VIII"
-
-    return 'I' * number
+    return result + "I" * number
