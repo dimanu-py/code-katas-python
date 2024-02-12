@@ -5,6 +5,9 @@ def roman_numeral(number: int) -> str:
     Convert an arabic number to a roman numeral
     """
 
+    if number <= 0 or number >= 4000:
+        raise ValueError("Number must be between 1 and 3999")
+
     number_conversion = {
         1000: "M",
         900: "CM",

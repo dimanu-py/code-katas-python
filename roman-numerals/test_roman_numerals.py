@@ -18,3 +18,9 @@ class TestRomanNumeralShould:
         numeral = roman_numeral(number)
 
         assert numeral == expected
+
+    @pytest.mark.parametrize("number", [0, -1, -10, 4000])
+    def test_invalid_arabic_numeral_raise_error(self, number: int) -> None:
+
+        with pytest.raises(ValueError):
+            roman_numeral(number)
