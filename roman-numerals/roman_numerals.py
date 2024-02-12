@@ -6,6 +6,7 @@ def roman_numeral(number: int) -> str:
     """
 
     number_conversion = {
+        40: "XL",
         10: "X",
         9: "IX",
         5: "V",
