@@ -4,23 +4,20 @@ def roman_numeral(number: int) -> str:
     """
     Convert an arabic number to a roman numeral
     """
-    if number == 4:
-        return "IV"
 
-    if number == 9:
-        return "IX"
+    number_conversion = {
+        10: "X",
+        9: "IX",
+        5: "V",
+        4: "IV",
+        1: "I"
+    }
 
-    if number == 14:
-        return "XIV"
+    roman_number = ""
 
-    result = ""
+    for arabic, roman in number_conversion.items():
+        while number >= arabic:
+            roman_number += roman
+            number -= arabic
 
-    if number >= 10:
-        result = "X"
-        number -= 10
-
-    if number >= 5:
-        result = "V"
-        number -= 5
-
-    return result + "I" * number
+    return roman_number
