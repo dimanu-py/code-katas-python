@@ -16,6 +16,7 @@ The project will have one folder per kata. Each folder will contain the followin
 
 1. [Fizz Buzz](https://github.com/dimanu-py/code-katas-python/tree/main/fizz-buzz) (solved 13th December 2023)
 2. [Leap Year](https://github.com/dimanu-py/code-katas-python/tree/main/leap-year) (solved 30th December 2023)
+3. [Roman Numerals](https://github.com/dimanu-py/code-katas-python/tree/main/roman-numerals) (solved 10th February 2024)
 
 ## Resources
 
