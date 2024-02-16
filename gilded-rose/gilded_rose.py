@@ -29,14 +29,14 @@ class GildedRose(object):
                     item.quality = item.quality - 1
         else:
             if item.quality < 50:
-                item.quality = item.quality + 1
+                self.increase_quality(item)
                 if item.name == BACKSTAGE_PASSES:
                     if item.sell_in < 11:
                         if item.quality < 50:
-                            item.quality = item.quality + 1
+                            self.increase_quality(item)
                     if item.sell_in < 6:
                         if item.quality < 50:
-                            item.quality = item.quality + 1
+                            self.increase_quality(item)
         if item.name != SULFURES:
             item.sell_in = item.sell_in - 1
         if item.sell_in < 0:
@@ -49,4 +49,8 @@ class GildedRose(object):
                     item.quality = item.quality - item.quality
             else:
                 if item.quality < 50:
-                    item.quality = item.quality + 1
+                    self.increase_quality(item)
+
+    @staticmethod
+    def increase_quality(item: Item) -> None:
+        item.quality = item.quality + 1
