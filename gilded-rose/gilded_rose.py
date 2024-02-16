@@ -52,15 +52,16 @@ class GildedRose(object):
     def __init__(self, items: list[Item]) -> None:
         self.items = items
         self.item_updater ={
-
+            AGED_BRIE: AgedBrieItemUpdater,
         }
 
     def update_quality(self) -> None:
         for item in self.items:
             self.update_item_state(item)
 
-    @staticmethod
-    def update_item_state(item: Item) -> None:
+    def update_item_state(self, item: Item) -> None:
+
+        item_updater = self.item_updater.get(item.name, NormalItemUpdater)()
 
         if item.name == SULFURES:
             return
@@ -69,9 +70,7 @@ class GildedRose(object):
         item_has_expired = item.sell_in < 0
 
         if item.name == AGED_BRIE:
-            increase_quality(item)
-            if item_has_expired:
-                increase_quality(item)
+            item_updater.update_quality(item)
         elif item.name == BACKSTAGE_PASSES:
             increase_quality(item)
             if item.sell_in < 11:
