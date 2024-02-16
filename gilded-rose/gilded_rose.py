@@ -46,7 +46,10 @@ class GildedRose(object):
             item.sell_in = item.sell_in - 1
 
         if item.sell_in < 0:
-            if item.name != AGED_BRIE:
+            if item.name == AGED_BRIE:
+                if item.quality < 50:
+                    self.increase_quality(item)
+            else:
                 if item.name == BACKSTAGE_PASSES:
                     item.quality = 0
                 else:
@@ -55,9 +58,7 @@ class GildedRose(object):
                             return
                         else:
                             self.decrease_quality(item)
-            else:
-                if item.quality < 50:
-                    self.increase_quality(item)
+
 
     @staticmethod
     def decrease_quality(item: Item) -> None:
