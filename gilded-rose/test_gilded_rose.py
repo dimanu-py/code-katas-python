@@ -39,3 +39,11 @@ class TestGildedRose:
         gilded_rose.update_quality()
 
         assert items[0].quality >= 0
+
+    def test_aged_brie_increases_quality_with_age(self) -> None:
+        items = [Item("Aged Brie", 1, 0)]
+        gilded_rose = GildedRose(items)
+
+        gilded_rose.update_quality()
+
+        assert 1 == items[0].quality
