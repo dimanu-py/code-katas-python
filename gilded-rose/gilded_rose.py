@@ -33,11 +33,10 @@ class GildedRose(object):
             self.increase_quality(item)
         elif item.name == BACKSTAGE_PASSES:
             self.increase_quality(item)
-            if item.name == BACKSTAGE_PASSES:
-                if item.sell_in < 11:
-                        self.increase_quality(item)
-                if item.sell_in < 6:
-                        self.increase_quality(item)
+            if item.sell_in < 11:
+                    self.increase_quality(item)
+            if item.sell_in < 6:
+                    self.increase_quality(item)
         else:
             self.decrease_quality(item)
 
