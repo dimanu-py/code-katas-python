@@ -15,3 +15,11 @@ class TestGildedRose:
         gilded_rose.update_quality()
 
         assert 0 == items[0].quality
+
+    def test_item_sell_in_decreases(self) -> None:
+        items = [Item("foo", 1, 1)]
+        gilded_rose = GildedRose(items)
+
+        gilded_rose.update_quality()
+
+        assert 0 == items[0].sell_in
