@@ -122,9 +122,9 @@ class TestBackstagePassesItem:
         assert 50 == items[0].quality
 
 
-class TestGildedRose:
+class TestSulfurasItem:
 
-    def test_sulfuras_does_not_decrease_quality(self) -> None:
+    def test_item_does_not_decrease_quality(self) -> None:
         items = [Item("Sulfuras, Hand of Ragnaros", 1, 80)]
         gilded_rose = GildedRose(items)
 
@@ -132,7 +132,7 @@ class TestGildedRose:
 
         assert 80 == items[0].quality
 
-    def test_sulfuras_dos_not_decrease_sell_in(self) -> None:
+    def test_item_dos_not_decrease_sell_in(self) -> None:
         items = [Item("Sulfuras, Hand of Ragnaros", 1, 80)]
         gilded_rose = GildedRose(items)
 
