@@ -1,3 +1,5 @@
+MAX_QUALITY = 50
+MIN_QUALITY = 0
 SULFURES = "Sulfuras, Hand of Ragnaros"
 BACKSTAGE_PASSES = "Backstage passes"
 AGED_BRIE = "Aged Brie"
@@ -44,17 +46,17 @@ class GildedRose(object):
                 self.increase_quality(item)
             else:
                 if item.name == BACKSTAGE_PASSES:
-                    item.quality = 0
+                    item.quality = MIN_QUALITY
                 else:
                     self.decrease_quality(item)
 
 
     @staticmethod
     def decrease_quality(item: Item) -> None:
-        if item.quality > 0:
+        if item.quality > MIN_QUALITY:
             item.quality = item.quality - 1
 
     @staticmethod
     def increase_quality(item: Item) -> None:
-        if item.quality < 50:
+        if item.quality < MAX_QUALITY:
             item.quality = item.quality + 1
