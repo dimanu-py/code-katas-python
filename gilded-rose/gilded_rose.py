@@ -29,7 +29,9 @@ class GildedRose(object):
         if item.name == SULFURES:
             return
 
-        if item.name == AGED_BRIE or item.name == BACKSTAGE_PASSES:
+        if item.name == AGED_BRIE:
+            self.increase_quality(item)
+        elif item.name == BACKSTAGE_PASSES:
             self.increase_quality(item)
             if item.name == BACKSTAGE_PASSES:
                 if item.sell_in < 11:
