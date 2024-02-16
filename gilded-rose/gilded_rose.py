@@ -81,16 +81,8 @@ class GildedRose(object):
             return
 
         item.sell_in = item.sell_in - 1
-        item_has_expired = item.sell_in < 0
 
-        if item.name == AGED_BRIE:
-            item_updater.update_quality(item)
-        elif item.name == BACKSTAGE_PASSES:
-            item_updater.update_quality(item)
-        else:
-            decrease_quality(item)
-            if item_has_expired:
-                decrease_quality(item)
+        item_updater.update_quality(item)
 
 
 def decrease_quality(item: Item) -> None:
