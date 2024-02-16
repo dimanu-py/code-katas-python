@@ -74,12 +74,12 @@ class GildedRose(object):
             if item_has_expired:
                 self.decrease_quality(item)
 
-    @staticmethod
-    def decrease_quality(item: Item) -> None:
-        if item.quality > MIN_QUALITY:
-            item.quality = item.quality - 1
 
-    @staticmethod
-    def increase_quality(item: Item) -> None:
-        if item.quality < MAX_QUALITY:
-            item.quality = item.quality + 1
+def decrease_quality(item: Item) -> None:
+    if item.quality > MIN_QUALITY:
+        item.quality -= 1
+
+
+def increase_quality(item: Item) -> None:
+    if item.quality < MAX_QUALITY:
+        item.quality += 1
