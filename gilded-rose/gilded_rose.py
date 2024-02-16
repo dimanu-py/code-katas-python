@@ -60,6 +60,18 @@ class BackstagePassesItemUpdater(ItemUpdater):
             item.quality = MIN_QUALITY
 
 
+class SulfuresItemUpdater(ItemUpdater):
+
+    def update_quality(self, item: Item) -> None:
+        """Sulfures do not update its quality because is a legendary item."""
+        pass
+
+    @staticmethod
+    def update_sell_in(item: Item) -> None:
+        """Sulfures do not update its sell in day because is a legendary item."""
+        pass
+
+
 class GildedRose(object):
 
     def __init__(self, items: list[Item]) -> None:
