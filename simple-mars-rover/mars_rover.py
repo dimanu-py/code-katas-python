@@ -6,3 +6,6 @@ class MarsRover:
         self.x_coordinate: int = 0
         self.y_coordinate: int = 0
         self.facing: str = "N"
+
+    def execute(self, command: str) -> str:
+        return "0:0:N"

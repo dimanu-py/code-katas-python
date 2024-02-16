@@ -9,3 +9,10 @@ class TestMarsRover:
         assert rover.x_coordinate == 0
         assert rover.y_coordinate == 0
         assert rover.facing == "N"
+
+    def test_empty_command_does_not_move_rover(self):
+        rover = MarsRover()
+
+        position = rover.execute("")
+
+        assert position == "0:0:N"
