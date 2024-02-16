@@ -78,7 +78,8 @@ class GildedRose(object):
         self.items = items
         self.item_updater ={
             AGED_BRIE: AgedBrieItemUpdater,
-            BACKSTAGE_PASSES: BackstagePassesItemUpdater
+            BACKSTAGE_PASSES: BackstagePassesItemUpdater,
+            SULFURES: SulfuresItemUpdater
         }
 
     def update_quality(self) -> None:
@@ -88,9 +89,6 @@ class GildedRose(object):
     def update_item_state(self, item: Item) -> None:
 
         item_updater = self.item_updater.get(item.name, NormalItemUpdater)()
-
-        if item.name == SULFURES:
-            return
 
         item_updater.update_sell_in(item)
         item_updater.update_quality(item)
