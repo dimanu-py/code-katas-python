@@ -5,6 +5,7 @@ MIN_QUALITY = 0
 SULFURES = "Sulfuras, Hand of Ragnaros"
 BACKSTAGE_PASSES = "Backstage passes"
 AGED_BRIE = "Aged Brie"
+CONJURED = "Conjured"
 
 
 class Item:
@@ -72,6 +73,17 @@ class SulfuresItemUpdater(ItemUpdater):
         pass
 
 
+class ConjuredItemUpdater(ItemUpdater):
+    """Conjured items decrease their quality twice as fast as Normal Items, this means they decreased its quality by two every time, and
+    also if sell in day has passed."""
+    def update_quality(self, item: Item) -> None:
+        decrease_quality(item)
+        decrease_quality(item)
+        if item.sell_in < 0:
+            decrease_quality(item)
+            decrease_quality(item)
+
+
 class GildedRose(object):
 
     def __init__(self, items: list[Item]) -> None:
@@ -79,7 +91,8 @@ class GildedRose(object):
         self.item_updater ={
             AGED_BRIE: AgedBrieItemUpdater,
             BACKSTAGE_PASSES: BackstagePassesItemUpdater,
-            SULFURES: SulfuresItemUpdater
+            SULFURES: SulfuresItemUpdater,
+            CONJURED: ConjuredItemUpdater
         }
 
     def update_quality(self) -> None:
