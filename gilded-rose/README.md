@@ -1,22 +1,31 @@
-# Gilded Rose Requirements Specification
+# Credits
+
+These requirements and the initial state of the code are extracted from the original GitHub repository
+
+[![Web](https://img.shields.io/badge/GitHub-emilybache-14a1f0?style=for-the-badge&logo=github&logoColor=white&labelColor=101010)](https://github.com/emilybache/GildedRose-Refactoring-Kata/tree/main?tab=MIT-1-ov-file)
+
+
+# 🌹 Gilded Rose Kata 🌹
+
+## Description
 
 Hi and welcome to team Gilded Rose. As you know, we are a small inn with a prime location in a
-prominent city ran by a friendly innkeeper named Allison. We also buy and sell only the finest goods.
-Unfortunately, our goods are constantly degrading in `Quality` as they approach their sell by date.
+prominent city run by a friendly innkeeper named Allison. We also buy and sell only the finest goods.
+Unfortunately, our goods are constantly degrading in `Quality` as they approach their sell-by date.
 
 We have a system in place that updates our inventory for us. It was developed by a no-nonsense type named
-Leeroy, who has moved on to new adventures. Your task is to add the new feature to our system so that
+Leeroy, has moved on to new adventures. Your task is to add the new feature to our system so that
 we can begin selling a new category of items. First an introduction to our system:
 
 - All `items` have a `SellIn` value which denotes the number of days we have to sell the `items`
 - All `items` have a `Quality` value which denotes how valuable the item is
 - At the end of each day our system lowers both values for every item
 
-Pretty simple, right? Well this is where it gets interesting:
+Pretty simple, right? Well, this is where it gets interesting:
 
-- Once the sell by date has passed, `Quality` degrades twice as fast
+- Once the sell-by date has passed, `Quality` degrades twice as fast
 - The `Quality` of an item is never negative
-- __"Aged Brie"__ actually increases in `Quality` the older it gets
+- __"Aged Brie"__ increases in `Quality` the older it gets
 - The `Quality` of an item is never more than `50`
 - __"Sulfuras"__, being a legendary item, never has to be sold or decreases in `Quality`
 - __"Backstage passes"__, like aged brie, increases in `Quality` as its `SellIn` value approaches;
@@ -35,3 +44,9 @@ for you).
 
 Just for clarification, an item can never have its `Quality` increase above `50`, however __"Sulfuras"__ is a
 legendary item and as such its `Quality` is `80` and it never alters.
+
+## Objective
+
+The main objective of this kata is:
+ - Implement a safety net with testing
+ - Be able to refactor step by step the code so a new item can be added as easily as possible.
