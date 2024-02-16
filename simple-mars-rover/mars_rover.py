@@ -8,11 +8,12 @@ class MarsRover:
         self.facing: str = "N"
 
     def execute(self, command: str) -> str:
-        if command == "M":
-            return "0:1:N"
-        elif command == "MM":
-            return "0:2:N"
-        elif command == "MMM":
-            return "0:3:N"
 
-        return "0:0:N"
+        if command == "":
+            return "0:0:N"
+
+        for move in command:
+            if move == "M":
+                self.y_coordinate += 1
+
+        return f"0:{self.y_coordinate}:N"

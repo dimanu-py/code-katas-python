@@ -21,7 +21,7 @@ class TestMarsRover:
 
     @pytest.mark.parametrize(
         "command, expected_position",
-        [("M", "0:1:N"), ("MM", "0:2:N"), ("MMM", "0:3:N")]
+        [("M", "0:1:N"), ("MM", "0:2:N"), ("MMMMMMMM", "0:8:N")]
     )
     def test_move_command_moves_rover_in_facing_direction(self, command: str, expected_position: str) -> None:
         rover = MarsRover()
