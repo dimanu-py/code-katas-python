@@ -39,10 +39,21 @@ class NormalItemUpdater(ItemUpdater):
             decrease_quality(item)
 
 
+class AgedBrieItemUpdater(ItemUpdater):
+    """Aged Brie increases its quality by 1 each day. When the sell in day is negative, the quality increases by 2."""
+    def update_quality(self, item: Item) -> None:
+        increase_quality(item)
+        if item.sell_in < 0:
+            increase_quality(item)
+
+
 class GildedRose(object):
 
     def __init__(self, items: list[Item]) -> None:
         self.items = items
+        self.item_updater ={
+
+        }
 
     def update_quality(self) -> None:
         for item in self.items:
