@@ -1,11 +1,15 @@
 from abc import ABC, abstractmethod
+from enum import StrEnum
 
 MAX_QUALITY = 50
 MIN_QUALITY = 0
-SULFURES = "Sulfuras, Hand of Ragnaros"
-BACKSTAGE_PASSES = "Backstage passes"
-AGED_BRIE = "Aged Brie"
-CONJURED = "Conjured"
+
+
+class ItemType(StrEnum):
+    SULFURES = "Sulfuras, Hand of Ragnaros"
+    BACKSTAGE_PASSES = "Backstage passes"
+    AGED_BRIE = "Aged Brie"
+    CONJURED = "Conjured"
 
 
 class Item:
@@ -89,10 +93,10 @@ class GildedRose(object):
     def __init__(self, items: list[Item]) -> None:
         self.items = items
         self.item_updater ={
-            AGED_BRIE: AgedBrieItemUpdater,
-            BACKSTAGE_PASSES: BackstagePassesItemUpdater,
-            SULFURES: SulfuresItemUpdater,
-            CONJURED: ConjuredItemUpdater
+            ItemType.AGED_BRIE: AgedBrieItemUpdater,
+            ItemType.BACKSTAGE_PASSES: BackstagePassesItemUpdater,
+            ItemType.SULFURES: SulfuresItemUpdater,
+            ItemType.CONJURED: ConjuredItemUpdater
         }
 
     def update_quality(self) -> None:
