@@ -41,7 +41,8 @@ class GildedRose(object):
 
         item.sell_in = item.sell_in - 1
 
-        if item.sell_in < 0:
+        item_has_expired = item.sell_in < 0
+        if item_has_expired:
             if item.name == AGED_BRIE:
                 self.increase_quality(item)
             else:
