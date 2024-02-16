@@ -55,3 +55,11 @@ class TestGildedRose:
         gilded_rose.update_quality()
 
         assert 50 == items[0].quality
+
+    def test_sulfuras_does_not_decrease_quality(self) -> None:
+        items = [Item("Sulfuras, Hand of Ragnaros", 1, 80)]
+        gilded_rose = GildedRose(items)
+
+        gilded_rose.update_quality()
+
+        assert 80 == items[0].quality
