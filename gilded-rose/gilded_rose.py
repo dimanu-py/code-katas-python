@@ -47,14 +47,14 @@ class GildedRose(object):
 
         if item.sell_in < 0:
             if item.name != AGED_BRIE:
-                if item.name != BACKSTAGE_PASSES:
+                if item.name == BACKSTAGE_PASSES:
+                    item.quality = 0
+                else:
                     if item.quality > 0:
                         if item.name == SULFURES:
                             return
                         else:
                             self.decrease_quality(item)
-                else:
-                    item.quality = 0
             else:
                 if item.quality < 50:
                     self.increase_quality(item)
