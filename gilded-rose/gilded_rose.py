@@ -1,3 +1,5 @@
+from abc import ABC, abstractmethod
+
 MAX_QUALITY = 50
 MIN_QUALITY = 0
 SULFURES = "Sulfuras, Hand of Ragnaros"
@@ -13,6 +15,20 @@ class Item:
 
     def __repr__(self) -> str:
         return "%s, %s, %s" % (self.name, self.sell_in, self.quality)
+
+
+class ItemUpdater(ABC):
+    """Model the behavior to update the quality and sell in day of an item."""
+
+    @abstractmethod
+    def update_quality(self, item: Item) -> None:
+        """Update the quality of an item."""
+        pass
+
+    @staticmethod
+    def update_sell_in(item: Item) -> None:
+        """Update the sell in day of an item."""
+        item.sell_in = item.sell_in - 1
 
 
 class GildedRose(object):
