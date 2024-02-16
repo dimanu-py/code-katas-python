@@ -25,7 +25,9 @@ class GildedRose(object):
     def update_item_state(self, item: Item) -> None:
         if item.name != AGED_BRIE and item.name != BACKSTAGE_PASSES:
             if item.quality > 0:
-                if item.name != SULFURES:
+                if item.name == SULFURES:
+                    return
+                else:
                     self.decrease_quality(item)
         else:
             if item.quality < 50:
