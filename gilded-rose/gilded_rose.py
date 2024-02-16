@@ -111,11 +111,11 @@ class GildedRose(object):
         item_updater.update_quality(item)
 
 
-def decrease_quality(item: Item) -> None:
+def decrease_quality(item: Item, amount: int = 1) -> None:
     if item.quality > MIN_QUALITY:
-        item.quality -= 1
+        item.quality -= amount
 
 
-def increase_quality(item: Item) -> None:
+def increase_quality(item: Item, amount: int = 1) -> None:
     if item.quality < MAX_QUALITY:
-        item.quality += 1
+        item.quality += amount
