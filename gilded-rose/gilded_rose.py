@@ -46,11 +46,10 @@ class GildedRose(object):
         if item_has_expired:
             if item.name == AGED_BRIE:
                 self.increase_quality(item)
+            elif item.name == BACKSTAGE_PASSES:
+                item.quality = MIN_QUALITY
             else:
-                if item.name == BACKSTAGE_PASSES:
-                    item.quality = MIN_QUALITY
-                else:
-                    self.decrease_quality(item)
+                self.decrease_quality(item)
 
 
     @staticmethod
