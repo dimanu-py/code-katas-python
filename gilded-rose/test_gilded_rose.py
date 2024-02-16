@@ -47,3 +47,11 @@ class TestGildedRose:
         gilded_rose.update_quality()
 
         assert 1 == items[0].quality
+
+    def test_item_quality_is_never_greater_than_50(self) -> None:
+        items = [Item("Aged Brie", 1, 50)]
+        gilded_rose = GildedRose(items)
+
+        gilded_rose.update_quality()
+
+        assert 50 == items[0].quality
