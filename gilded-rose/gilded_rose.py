@@ -80,8 +80,7 @@ class GildedRose(object):
         if item.name == SULFURES:
             return
 
-        item.sell_in = item.sell_in - 1
-
+        item_updater.update_sell_in(item)
         item_updater.update_quality(item)
 
 
