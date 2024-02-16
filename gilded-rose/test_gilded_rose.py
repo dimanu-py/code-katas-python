@@ -79,3 +79,11 @@ class TestGildedRose:
         gilded_rose.update_quality()
 
         assert 21 == items[0].quality
+
+    def test_backstage_passes_increases_quality_twice_faster_when_sell_in_is_lower_than_10(self) -> None:
+        items = [Item("Backstage passes", 8, 20)]
+        gilded_rose = GildedRose(items)
+
+        gilded_rose.update_quality()
+
+        assert 22 == items[0].quality
