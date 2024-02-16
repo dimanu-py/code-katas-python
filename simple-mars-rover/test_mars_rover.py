@@ -1,3 +1,5 @@
+import pytest
+
 from mars_rover import MarsRover
 
 
@@ -17,9 +19,13 @@ class TestMarsRover:
 
         assert position == "0:0:N"
 
-    def test_move_command_moves_rover_in_facing_direction(self):
+    @pytest.mark.parametrize(
+        "command, expected_position",
+        [("M", "0:1:N"), ("MM", "0:2:N"), ("MMM", "0:3:N")]
+    )
+    def test_move_command_moves_rover_in_facing_direction(self, command: str, expected_position: str) -> None:
         rover = MarsRover()
 
-        position = rover.execute("M")
+        position = rover.execute(command)
 
-        assert position == "0:1:N"
+        assert position == expected_position
