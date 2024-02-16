@@ -79,6 +79,49 @@ class TestAgedBrieItem:
         assert 50 == items[0].quality
 
 
+class TestBackstagePassesItem:
+
+    def test_item_quality_increases_with_age(self) -> None:
+        items = [Item("Backstage passes", 15, 20)]
+        gilded_rose = GildedRose(items)
+
+        gilded_rose.update_quality()
+
+        assert 21 == items[0].quality
+
+    def test_item_quality_increases_twice_faster_when_sell_in_is_lower_than_10(self) -> None:
+        items = [Item("Backstage passes", 8, 20)]
+        gilded_rose = GildedRose(items)
+
+        gilded_rose.update_quality()
+
+        assert 22 == items[0].quality
+
+    def test_item_quality_increases_thrice_faster_when_sell_in_is_lower_than_5(self) -> None:
+        items = [Item("Backstage passes", 4, 20)]
+        gilded_rose = GildedRose(items)
+
+        gilded_rose.update_quality()
+
+        assert 23 == items[0].quality
+
+    def test_item_quality_drops_to_zero_when_sell_in_is_0(self) -> None:
+        items = [Item("Backstage passes", 0, 20)]
+        gilded_rose = GildedRose(items)
+
+        gilded_rose.update_quality()
+
+        assert 0 == items[0].quality
+
+    def test_item_quality_is_never_greater_than_50(self) -> None:
+        items = [Item("Backstage passes", 1, 50)]
+        gilded_rose = GildedRose(items)
+
+        gilded_rose.update_quality()
+
+        assert 50 == items[0].quality
+
+
 class TestGildedRose:
 
     def test_sulfuras_does_not_decrease_quality(self) -> None:
@@ -96,35 +139,3 @@ class TestGildedRose:
         gilded_rose.update_quality()
 
         assert 1 == items[0].sell_in
-
-    def test_backstage_passes_increases_quality_with_age(self) -> None:
-        items = [Item("Backstage passes", 15, 20)]
-        gilded_rose = GildedRose(items)
-
-        gilded_rose.update_quality()
-
-        assert 21 == items[0].quality
-
-    def test_backstage_passes_increases_quality_twice_faster_when_sell_in_is_lower_than_10(self) -> None:
-        items = [Item("Backstage passes", 8, 20)]
-        gilded_rose = GildedRose(items)
-
-        gilded_rose.update_quality()
-
-        assert 22 == items[0].quality
-
-    def test_backstage_passes_increases_quality_thrice_faster_when_sell_in_is_lower_than_5(self) -> None:
-        items = [Item("Backstage passes", 4, 20)]
-        gilded_rose = GildedRose(items)
-
-        gilded_rose.update_quality()
-
-        assert 23 == items[0].quality
-
-    def test_backstage_passes_quality_drops_to_zero_when_sell_in_is_0(self) -> None:
-        items = [Item("Backstage passes", 0, 20)]
-        gilded_rose = GildedRose(items)
-
-        gilded_rose.update_quality()
-
-        assert 0 == items[0].quality
