@@ -44,15 +44,31 @@ class TestNormalItem:
         assert items[0].quality >= 0
 
 
-class TestGildedRose:
+class TestAgedBrieItem:
 
-    def test_aged_brie_increases_quality_with_age(self) -> None:
-        items = [Item("Aged Brie", 1, 0)]
+    def test_item_quality_increases_with_age(self) -> None:
+        items = [Item("Aged Brie", 1, 1)]
         gilded_rose = GildedRose(items)
 
         gilded_rose.update_quality()
 
-        assert 1 == items[0].quality
+        assert 2 == items[0].quality
+
+    def test_item_sell_in_decreases(self) -> None:
+        items = [Item("Aged Brie", 1, 1)]
+        gilded_rose = GildedRose(items)
+
+        gilded_rose.update_quality()
+
+        assert 0 == items[0].sell_in
+
+    def test_item_quality_increases_twice_as_fast_when_sell_in_is_negative(self) -> None:
+        items = [Item("Aged Brie", -1, 1)]
+        gilded_rose = GildedRose(items)
+
+        gilded_rose.update_quality()
+
+        assert 3 == items[0].quality
 
     def test_item_quality_is_never_greater_than_50(self) -> None:
         items = [Item("Aged Brie", 1, 50)]
@@ -61,6 +77,9 @@ class TestGildedRose:
         gilded_rose.update_quality()
 
         assert 50 == items[0].quality
+
+
+class TestGildedRose:
 
     def test_sulfuras_does_not_decrease_quality(self) -> None:
         items = [Item("Sulfuras, Hand of Ragnaros", 1, 80)]
