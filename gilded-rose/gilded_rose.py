@@ -49,7 +49,9 @@ class GildedRose(object):
             if item.name != AGED_BRIE:
                 if item.name != BACKSTAGE_PASSES:
                     if item.quality > 0:
-                        if item.name != SULFURES:
+                        if item.name == SULFURES:
+                            return
+                        else:
                             self.decrease_quality(item)
                 else:
                     item.quality = 0
