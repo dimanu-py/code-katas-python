@@ -34,10 +34,9 @@ class ItemUpdater(ABC):
 class NormalItemUpdater(ItemUpdater):
     """Normal items decrease their quality by 1 each day. When the sell in day is negative, the quality decreases by 2."""
     def update_quality(self, item: Item) -> None:
-        if item.quality > MIN_QUALITY:
-            item.quality = item.quality - 1
+        decrease_quality(item)
         if item.sell_in < 0:
-            item.quality = item.quality - 1
+            decrease_quality(item)
 
 
 class GildedRose(object):
