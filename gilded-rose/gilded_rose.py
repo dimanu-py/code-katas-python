@@ -49,7 +49,8 @@ class GildedRose(object):
         for item in self.items:
             self.update_item_state(item)
 
-    def update_item_state(self, item: Item) -> None:
+    @staticmethod
+    def update_item_state(item: Item) -> None:
 
         if item.name == SULFURES:
             return
@@ -58,21 +59,21 @@ class GildedRose(object):
         item_has_expired = item.sell_in < 0
 
         if item.name == AGED_BRIE:
-            self.increase_quality(item)
+            increase_quality(item)
             if item_has_expired:
-                self.increase_quality(item)
+                increase_quality(item)
         elif item.name == BACKSTAGE_PASSES:
-            self.increase_quality(item)
+            increase_quality(item)
             if item.sell_in < 11:
-                self.increase_quality(item)
+                increase_quality(item)
             if item.sell_in < 6:
-                self.increase_quality(item)
+                increase_quality(item)
             if item_has_expired:
                 item.quality = MIN_QUALITY
         else:
-            self.decrease_quality(item)
+            decrease_quality(item)
             if item_has_expired:
-                self.decrease_quality(item)
+                decrease_quality(item)
 
 
 def decrease_quality(item: Item) -> None:
