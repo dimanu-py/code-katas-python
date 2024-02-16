@@ -29,28 +29,25 @@ class GildedRose(object):
         if item.name == SULFURES:
             return
 
+        item.sell_in = item.sell_in - 1
+        item_has_expired = item.sell_in < 0
+
         if item.name == AGED_BRIE:
             self.increase_quality(item)
+            if item_has_expired:
+                self.increase_quality(item)
         elif item.name == BACKSTAGE_PASSES:
             self.increase_quality(item)
             if item.sell_in < 11:
-                    self.increase_quality(item)
+                self.increase_quality(item)
             if item.sell_in < 6:
-                    self.increase_quality(item)
+                self.increase_quality(item)
+            if item_has_expired:
+                item.quality = MIN_QUALITY
         else:
             self.decrease_quality(item)
-
-        item.sell_in = item.sell_in - 1
-
-        item_has_expired = item.sell_in < 0
-        if item_has_expired:
-            if item.name == AGED_BRIE:
-                self.increase_quality(item)
-            elif item.name == BACKSTAGE_PASSES:
-                item.quality = MIN_QUALITY
-            else:
+            if item_has_expired:
                 self.decrease_quality(item)
-
 
     @staticmethod
     def decrease_quality(item: Item) -> None:
