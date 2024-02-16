@@ -23,13 +23,7 @@ class GildedRose(object):
             self.update_item_state(item)
 
     def update_item_state(self, item: Item) -> None:
-        if item.name != AGED_BRIE and item.name != BACKSTAGE_PASSES:
-            if item.quality > 0:
-                if item.name == SULFURES:
-                    return
-                else:
-                    self.decrease_quality(item)
-        else:
+        if item.name == AGED_BRIE or item.name == BACKSTAGE_PASSES:
             if item.quality < 50:
                 self.increase_quality(item)
                 if item.name == BACKSTAGE_PASSES:
@@ -39,6 +33,13 @@ class GildedRose(object):
                     if item.sell_in < 6:
                         if item.quality < 50:
                             self.increase_quality(item)
+        else:
+            if item.quality > 0:
+                if item.name == SULFURES:
+                    return
+                else:
+                    self.decrease_quality(item)
+
         if item.name != SULFURES:
             item.sell_in = item.sell_in - 1
         if item.sell_in < 0:
