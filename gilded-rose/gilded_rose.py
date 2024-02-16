@@ -66,6 +66,7 @@ class GildedRose(object):
         self.items = items
         self.item_updater ={
             AGED_BRIE: AgedBrieItemUpdater,
+            BACKSTAGE_PASSES: BackstagePassesItemUpdater
         }
 
     def update_quality(self) -> None:
@@ -85,13 +86,7 @@ class GildedRose(object):
         if item.name == AGED_BRIE:
             item_updater.update_quality(item)
         elif item.name == BACKSTAGE_PASSES:
-            increase_quality(item)
-            if item.sell_in < 11:
-                increase_quality(item)
-            if item.sell_in < 6:
-                increase_quality(item)
-            if item_has_expired:
-                item.quality = MIN_QUALITY
+            item_updater.update_quality(item)
         else:
             decrease_quality(item)
             if item_has_expired:
