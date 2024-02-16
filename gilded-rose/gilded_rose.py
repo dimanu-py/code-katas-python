@@ -81,11 +81,9 @@ class ConjuredItemUpdater(ItemUpdater):
     """Conjured items decrease their quality twice as fast as Normal Items, this means they decreased its quality by two every time, and
     also if sell in day has passed."""
     def update_quality(self, item: Item) -> None:
-        decrease_quality(item)
-        decrease_quality(item)
+        decrease_quality(item, amount=2)
         if item.sell_in < 0:
-            decrease_quality(item)
-            decrease_quality(item)
+            decrease_quality(item, amount=2)
 
 
 class GildedRose(object):
