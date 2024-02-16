@@ -47,6 +47,19 @@ class AgedBrieItemUpdater(ItemUpdater):
             increase_quality(item)
 
 
+class BackstagePassesItemUpdater(ItemUpdater):
+    """Backstage passes increase its quality by 1 each day. When the sell in day is less than 11, the quality increases by 2.
+    When the sell in day is less than 6, the quality increases by 3. When the sell in day is negative, the quality is 0."""
+    def update_quality(self, item: Item) -> None:
+        increase_quality(item)
+        if item.sell_in < 11:
+            increase_quality(item)
+        if item.sell_in < 6:
+            increase_quality(item)
+        if item.sell_in < 0:
+            item.quality = MIN_QUALITY
+
+
 class GildedRose(object):
 
     def __init__(self, items: list[Item]) -> None:
