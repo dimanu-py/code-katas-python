@@ -95,3 +95,11 @@ class TestGildedRose:
         gilded_rose.update_quality()
 
         assert 23 == items[0].quality
+
+    def test_backstage_passes_quality_drops_to_zero_when_sell_in_is_0(self) -> None:
+        items = [Item("Backstage passes", 0, 20)]
+        gilded_rose = GildedRose(items)
+
+        gilded_rose.update_quality()
+
+        assert 0 == items[0].quality
