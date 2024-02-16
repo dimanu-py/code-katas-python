@@ -40,8 +40,11 @@ class GildedRose(object):
                 else:
                     self.decrease_quality(item)
 
-        if item.name != SULFURES:
+        if item.name == SULFURES:
+            return
+        else:
             item.sell_in = item.sell_in - 1
+
         if item.sell_in < 0:
             if item.name != AGED_BRIE:
                 if item.name != BACKSTAGE_PASSES:
