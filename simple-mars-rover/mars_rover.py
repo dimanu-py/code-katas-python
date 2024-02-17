@@ -20,7 +20,7 @@ class MarsRover:
         for move in command:
             self._execute_command(move)
 
-        return f"{self.x_coordinate}:{self.y_coordinate}:{self.facing}"
+        return f"{self.x_coordinate}:{self.y_coordinate}:{self.orientation}"
 
     def _execute_command(self, move: str) -> None:
         commands_map = {
@@ -35,33 +35,21 @@ class MarsRover:
             raise InvalidCommandError(move)
 
     def move_straight(self) -> None:
-        if self.facing == "N":
+        if self.orientation == "N":
             self.y_coordinate = self.y_coordinate + 1 if self.y_coordinate < 9 else 0
-        elif self.facing == "E":
+        elif self.orientation == "E":
             self.x_coordinate = self.x_coordinate + 1 if self.x_coordinate < 9 else 0
-        elif self.facing == "S":
+        elif self.orientation == "S":
             self.y_coordinate = self.y_coordinate - 1 if self.y_coordinate > 0 else 9
-        elif self.facing == "W":
+        elif self.orientation == "W":
             self.x_coordinate = self.x_coordinate - 1 if self.x_coordinate > 0 else 9
 
     def rotate_right(self) -> None:
         """Rotate the rover 90 degrees to the right."""
 
-        right_rotation_transitions = {
-            "N": "E",
-            "E": "S",
-            "S": "W",
-            "W": "N"
-        }
-        self.facing = right_rotation_transitions[self.facing]
+        self.orientation = self.orientation.right()
 
     def rotate_left(self) -> None:
         """Rotate the rover 90 degrees to the left."""
 
-        left_rotation_transitions = {
-            "N": "W",
-            "W": "S",
-            "S": "E",
-            "E": "N"
-        }
-        self.facing = left_rotation_transitions[self.facing]
+        self.orientation = self.orientation.left()
