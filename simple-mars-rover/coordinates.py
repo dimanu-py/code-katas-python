@@ -18,3 +18,10 @@ class Coordinates:
         For example, if the rover goes outside the grid at the top, it will appear at the bottom.
         """
         return coordinate % 10
+
+
+class Displacement:
+
+    def __init__(self, x_inc: int, y_inc: int) -> None:
+        self.x = x_inc
+        self.y = y_inc
