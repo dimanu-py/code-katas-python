@@ -13,7 +13,7 @@ class Orientation(ABC):
         """Rotate the rover 90 degrees to the left."""
 
     @abstractmethod
-    def forward(self, x: int, y: int) -> (int, int):
+    def forward(self, current_x: int, current_y: int) -> (int, int):
         """Move the rover forward in the facing direction."""
 
 
@@ -31,7 +31,10 @@ class North(Orientation):
 
         return West()
 
+    def forward(self, current_x: int, current_y: int) -> (int, int):
 
+        y_increment = 1
+        return current_x, current_y + y_increment
 
 
 class East(Orientation):
@@ -47,6 +50,11 @@ class East(Orientation):
     def left(self) -> "Orientation":
 
         return North()
+
+    def forward(self, current_x: int, current_y: int) -> (int, int):
+
+        x_increment = 1
+        return current_x + x_increment, current_y
 
 
 
@@ -64,6 +72,11 @@ class South(Orientation):
 
         return East()
 
+    def forward(self, current_x: int, current_y: int) -> (int, int):
+
+        y_increment = -1
+        return current_x, current_y + y_increment
+
 
 
 class West(Orientation):
@@ -80,3 +93,7 @@ class West(Orientation):
 
         return South()
 
+    def forward(self, current_x: int, current_y: int) -> (int, int):
+
+        x_increment = -1
+        return current_x + x_increment, current_y
