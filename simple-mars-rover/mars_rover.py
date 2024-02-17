@@ -9,6 +9,10 @@ class InvalidCommandError(Exception):
         super().__init__(self.message)
 
 
+def print_output(position: Coordinates, orientation: Orientation) -> str:
+    return f"{position}:{orientation}"
+
+
 class MarsRover:
 
     def __init__(self) -> None:
@@ -20,7 +24,7 @@ class MarsRover:
         for move in command:
             self._execute_command(move)
 
-        return f"{self.position.x}:{self.position.y}:{self.orientation}"
+        return print_output(self.position, self.orientation)
 
     def _execute_command(self, move: str) -> None:
         commands_map = {
