@@ -22,5 +22,7 @@ class MarsRover:
                     self.facing = "S"
                 elif self.facing == "S":
                     self.facing = "W"
+                elif self.facing == "W":
+                    self.facing = "N"
 
         return f"0:{self.y_coordinate}:{self.facing}"

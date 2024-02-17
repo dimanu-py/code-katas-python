@@ -32,7 +32,7 @@ class TestMarsRover:
 
     @pytest.mark.parametrize(
         "command, expected_position",
-        [("R", "0:0:E"), ("RR", "0:0:S"), ("RRR", "0:0:W")]
+        [("R", "0:0:E"), ("RR", "0:0:S"), ("RRR", "0:0:W"), ("RRRR", "0:0:N")]
     )
     def test_right_command_rotates_rover_clockwise(self, command: str, expected_position: str) -> None:
         rover = MarsRover()
