@@ -16,13 +16,16 @@ class MarsRover:
             if move == "M":
                 self.y_coordinate += 1
             elif move == "R":
-                if self.facing == "N":
-                    self.facing = "E"
-                elif self.facing == "E":
-                    self.facing = "S"
-                elif self.facing == "S":
-                    self.facing = "W"
-                elif self.facing == "W":
-                    self.facing = "N"
+                self.rotate_right()
 
         return f"0:{self.y_coordinate}:{self.facing}"
+
+    def rotate_right(self) -> None:
+        if self.facing == "N":
+            self.facing = "E"
+        elif self.facing == "E":
+            self.facing = "S"
+        elif self.facing == "S":
+            self.facing = "W"
+        elif self.facing == "W":
+            self.facing = "N"
