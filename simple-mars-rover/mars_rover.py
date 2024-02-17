@@ -24,7 +24,7 @@ class MarsRover:
 
     def _execute_command(self, move: str) -> None:
         commands_map = {
-            "M": self.move_straight,
+            "M": self.move_forward,
             "R": self.rotate_right,
             "L": self.rotate_left
         }
@@ -34,15 +34,10 @@ class MarsRover:
         except KeyError:
             raise InvalidCommandError(move)
 
-    def move_straight(self) -> None:
-        if self.orientation == "N":
-            self.y_coordinate = self.y_coordinate + 1 if self.y_coordinate < 9 else 0
-        elif self.orientation == "E":
-            self.x_coordinate = self.x_coordinate + 1 if self.x_coordinate < 9 else 0
-        elif self.orientation == "S":
-            self.y_coordinate = self.y_coordinate - 1 if self.y_coordinate > 0 else 9
-        elif self.orientation == "W":
-            self.x_coordinate = self.x_coordinate - 1 if self.x_coordinate > 0 else 9
+    def move_forward(self) -> None:
+        """Move the rover one grid point in the current direction."""
+
+        self.x_coordinate, self.y_coordinate = self.orientation.forward(self.x_coordinate, self.y_coordinate)
 
     def rotate_right(self) -> None:
         """Rotate the rover 90 degrees to the right."""
