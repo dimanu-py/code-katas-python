@@ -29,3 +29,11 @@ class TestMarsRover:
         position = rover.execute(command)
 
         assert position == expected_position
+
+    def test_right_command_rotates_rover_clockwise(self) -> None:
+        rover = MarsRover()
+
+        rover.execute("R")
+
+        assert rover.facing == "E"
+

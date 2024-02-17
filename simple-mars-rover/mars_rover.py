@@ -15,5 +15,7 @@ class MarsRover:
         for move in command:
             if move == "M":
                 self.y_coordinate += 1
+            elif move == "R":
+                self.facing = "E"
 
-        return f"0:{self.y_coordinate}:N"
+        return f"0:{self.y_coordinate}:{self.facing}"
