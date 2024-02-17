@@ -41,3 +41,13 @@ class TestMarsRover:
 
         assert position == expected_position
 
+    @pytest.mark.parametrize(
+        "command, expected_position",
+        [("L", "0:0:W"), ("LL", "0:0:S"), ("LLL", "0:0:E"), ("LLLL", "0:0:N")]
+    )
+    def test_left_command_rotates_rover_counter_clockwise(self, command: str, expected_position: str) -> None:
+        rover = MarsRover()
+
+        position = rover.execute(command)
+
+        assert position == expected_position
