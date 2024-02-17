@@ -21,6 +21,8 @@ class MarsRover:
         return f"0:{self.y_coordinate}:{self.facing}"
 
     def rotate_right(self) -> None:
+        """Rotate the rover 90 degrees to the right."""
+
         right_rotation_transitions = {
             "N": "E",
             "E": "S",
