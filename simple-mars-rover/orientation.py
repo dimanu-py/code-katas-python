@@ -1,21 +1,21 @@
 from abc import ABC, abstractmethod
-from coordinates import Coordinates
+from coordinates import Displacement
 
 
 class Orientation(ABC):
     """Class to represent where the rover is facing and how it moves."""
 
     @abstractmethod
-    def right(self, ) -> "Orientation":
+    def right(self) -> "Orientation":
         """Rotate the rover 90 degrees to the right."""
 
     @abstractmethod
-    def left(self, ) -> "Orientation":
+    def left(self) -> "Orientation":
         """Rotate the rover 90 degrees to the left."""
 
     @abstractmethod
-    def forward(self, current_coordinates: Coordinates) -> Coordinates:
-        """Move the rover forward in the facing direction."""
+    def forward(self) -> Displacement:
+        """Tells the rover in what direction it should move."""
 
 
 class North(Orientation):
@@ -32,10 +32,9 @@ class North(Orientation):
 
         return West()
 
-    def forward(self, current_coordinates: Coordinates) -> Coordinates:
+    def forward(self) -> Displacement:
 
-        y_increment = 1
-        return Coordinates(current_coordinates.x, current_coordinates.y + y_increment)
+        return Displacement(0, 1)
 
 
 class East(Orientation):
@@ -52,11 +51,9 @@ class East(Orientation):
 
         return North()
 
-    def forward(self, current_coordinates: Coordinates) -> Coordinates:
+    def forward(self) -> Displacement:
 
-        x_increment = 1
-        return Coordinates(current_coordinates.x + x_increment, current_coordinates.y)
-
+        return Displacement(1, 0)
 
 class South(Orientation):
     """Class to represent the rover facing South."""
@@ -72,11 +69,9 @@ class South(Orientation):
 
         return East()
 
-    def forward(self, current_coordinates: Coordinates) -> Coordinates:
+    def forward(self) -> Displacement:
 
-        y_increment = -1
-        return Coordinates(current_coordinates.x, current_coordinates.y + y_increment)
-
+        return Displacement(0, -1)
 
 
 class West(Orientation):
@@ -93,7 +88,6 @@ class West(Orientation):
 
         return South()
 
-    def forward(self, current_coordinates: Coordinates) -> Coordinates:
+    def forward(self) -> Displacement:
 
-        x_increment = -1
-        return Coordinates(current_coordinates.x + x_increment, current_coordinates.y)
+        return Displacement(-1, 0)
