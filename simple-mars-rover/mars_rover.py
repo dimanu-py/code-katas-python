@@ -1,3 +1,4 @@
+from orientation import Orientation, North
 
 
 class InvalidCommandError(Exception):
@@ -12,7 +13,7 @@ class MarsRover:
     def __init__(self) -> None:
         self.x_coordinate: int = 0
         self.y_coordinate: int = 0
-        self.facing: str = "N"
+        self.orientation: Orientation = North()
 
     def execute(self, command: str) -> str:
 
