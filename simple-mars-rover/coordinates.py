@@ -1,3 +1,4 @@
+from typing import Union
 
 
 class Coordinates:
@@ -18,6 +19,10 @@ class Coordinates:
         For example, if the rover goes outside the grid at the top, it will appear at the bottom.
         """
         return coordinate % 10
+
+    def __add__(self, other: Union["Displacement", "Coordinates"]) -> "Coordinates":
+
+        return Coordinates(self.x + other.x, self.y + other.y)
 
 
 class Displacement:
