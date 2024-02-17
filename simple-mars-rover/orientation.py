@@ -24,6 +24,10 @@ class North(Orientation):
 
         return West()
 
+    def __repr__(self) -> str:
+        return "N"
+
+
 
 class East(Orientation):
     """Class to represent the rover facing East."""
@@ -35,6 +39,9 @@ class East(Orientation):
     def left(self) -> "Orientation":
 
         return North()
+
+    def __repr__(self) -> str:
+        return "E"
 
 
 class South(Orientation):
@@ -48,6 +55,9 @@ class South(Orientation):
 
         return East()
 
+    def __repr__(self) -> str:
+        return "S"
+
 
 class West(Orientation):
     """Class to represent the rover facing West."""
@@ -59,3 +69,6 @@ class West(Orientation):
     def left(self) -> "Orientation":
 
         return South()
+
+    def __repr__(self) -> str:
+        return "W"
