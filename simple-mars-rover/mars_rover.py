@@ -41,7 +41,8 @@ class MarsRover:
     def move_forward(self) -> None:
         """Move the rover one grid point in the current direction."""
 
-        self.position = self.orientation.forward(self.position)
+        displacement = self.orientation.forward()
+        self.position = self.position + displacement
 
     def rotate_right(self) -> None:
         """Rotate the rover 90 degrees to the right."""
