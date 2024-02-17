@@ -12,13 +12,14 @@ class MarsRover:
         if command == "":
             return f"{self.x_coordinate}:{self.y_coordinate}:{self.facing}"
 
+        commands_map = {
+            "M": self.move_straight,
+            "R": self.rotate_right,
+            "L": self.rotate_left
+        }
+
         for move in command:
-            if move == "M":
-                self.move_straight()
-            elif move == "R":
-                self.rotate_right()
-            elif move == "L":
-                self.rotate_left()
+            commands_map.get(move)()
 
         return f"{self.x_coordinate}:{self.y_coordinate}:{self.facing}"
 
