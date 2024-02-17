@@ -6,6 +6,9 @@ class Coordinates:
         self.x = self._wrap_around(x)
         self.y = self._wrap_around(y)
 
+    def __repr__(self) -> str:
+        return f"{self.x}:{self.y}"
+
     @staticmethod
     def _wrap_around(coordinate: int) -> int:
         """
