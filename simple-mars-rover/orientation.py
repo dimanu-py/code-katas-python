@@ -5,9 +5,22 @@ class Orientation(ABC):
     """Class to represent where the rover is facing and how it moves."""
 
     @abstractmethod
-    def right(self, ) -> None:
+    def right(self, ) -> "Orientation":
         """Rotate the rover 90 degrees to the right."""
 
     @abstractmethod
-    def left(self, ) -> None:
+    def left(self, ) -> "Orientation":
         """Rotate the rover 90 degrees to the left."""
+
+
+class North(Orientation):
+    """Class to represent the rover facing North."""
+
+    def right(self) -> "Orientation":
+
+        return East()
+
+    def left(self) -> "Orientation":
+
+        return West()
+    
