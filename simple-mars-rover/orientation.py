@@ -47,3 +47,15 @@ class South(Orientation):
     def left(self) -> "Orientation":
 
         return East()
+
+
+class West(Orientation):
+    """Class to represent the rover facing West."""
+
+    def right(self) -> "Orientation":
+
+        return North()
+
+    def left(self) -> "Orientation":
+
+        return South()
