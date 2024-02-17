@@ -1,6 +1,6 @@
 import pytest
 
-from mars_rover import MarsRover
+from mars_rover import MarsRover, InvalidCommandError
 
 
 class TestMarsRover:
@@ -55,3 +55,9 @@ class TestMarsRover:
         position = rover.execute(command)
 
         assert position == expected_position
+
+    @pytest.mark.parametrize("command", ["MMMMX", "AA", "RMMLMY"])
+    def test_invalid_command_can_not_be_executed(self, rover: MarsRover, command: str) -> None:
+
+        with pytest.raises(InvalidCommandError):
+            rover.execute(command)

@@ -1,5 +1,12 @@
 
 
+class InvalidCommandError(Exception):
+    """Exception raised when invalid command is passed to rover."""
+    def __init__(self, command: str) -> None:
+        self.message = f"Invalid command introduced: {command}"
+        super().__init__(self.message)
+
+
 class MarsRover:
 
     def __init__(self) -> None:
@@ -9,16 +16,22 @@ class MarsRover:
 
     def execute(self, command: str) -> str:
 
+        for move in command:
+            self._execute_command(move)
+
+        return f"{self.x_coordinate}:{self.y_coordinate}:{self.facing}"
+
+    def _execute_command(self, move: str) -> None:
         commands_map = {
             "M": self.move_straight,
             "R": self.rotate_right,
             "L": self.rotate_left
         }
 
-        for move in command:
-            commands_map.get(move)()
-
-        return f"{self.x_coordinate}:{self.y_coordinate}:{self.facing}"
+        try:
+            commands_map[move]()
+        except KeyError:
+            raise InvalidCommandError(move)
 
     def move_straight(self) -> None:
         if self.facing == "N":
