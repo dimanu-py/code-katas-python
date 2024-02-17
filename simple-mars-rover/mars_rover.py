@@ -14,7 +14,14 @@ class MarsRover:
 
         for move in command:
             if move == "M":
-                self.y_coordinate += 1
+                if self.facing == "N":
+                    self.y_coordinate = self.y_coordinate + 1 if self.y_coordinate < 9 else 0
+                elif self.facing == "E":
+                    self.x_coordinate = self.x_coordinate + 1 if self.x_coordinate < 9 else 0
+                elif self.facing == "S":
+                    self.y_coordinate = self.y_coordinate - 1 if self.y_coordinate > 0 else 9
+                elif self.facing == "W":
+                    self.x_coordinate = self.x_coordinate - 1 if self.x_coordinate > 0 else 9
             elif move == "R":
                 self.rotate_right()
             elif move == "L":

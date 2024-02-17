@@ -51,3 +51,13 @@ class TestMarsRover:
         position = rover.execute(command)
 
         assert position == expected_position
+
+    @pytest.mark.parametrize(
+        "command, expected_position",
+        [("M" * 10, "0:0:N"), ("R" + "M" * 10, "0:0:E"), ("LMM", "8:0:W"), ("LLM", "0:9:S")]
+    )
+    def test_when_rover_goes_outside_grid_it_wrap_around(self, rover: MarsRover, command: str, expected_position: str) -> None:
+
+        position = rover.execute(command)
+
+        assert position == expected_position
