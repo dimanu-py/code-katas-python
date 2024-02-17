@@ -11,7 +11,7 @@ class TestMarsRover:
 
     def test_initial_position_is_0_0_N(self, rover: MarsRover):
 
-        position = f"{rover.coordinates.x}:{rover.coordinates.y}:{rover.orientation}"
+        position = f"{rover.position.x}:{rover.position.y}:{rover.orientation}"
         assert position == "0:0:N"
 
     @pytest.mark.parametrize(

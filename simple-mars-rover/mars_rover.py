@@ -12,7 +12,7 @@ class InvalidCommandError(Exception):
 class MarsRover:
 
     def __init__(self) -> None:
-        self.coordinates: Coordinates = Coordinates(0, 0)
+        self.position: Coordinates = Coordinates(0, 0)
         self.orientation: Orientation = North()
 
     def execute(self, command: str) -> str:
@@ -20,7 +20,7 @@ class MarsRover:
         for move in command:
             self._execute_command(move)
 
-        return f"{self.coordinates.x}:{self.coordinates.y}:{self.orientation}"
+        return f"{self.position.x}:{self.position.y}:{self.orientation}"
 
     def _execute_command(self, move: str) -> None:
         commands_map = {
@@ -37,7 +37,7 @@ class MarsRover:
     def move_forward(self) -> None:
         """Move the rover one grid point in the current direction."""
 
-        self.coordinates = self.orientation.forward(self.coordinates)
+        self.position = self.orientation.forward(self.position)
 
     def rotate_right(self) -> None:
         """Rotate the rover 90 degrees to the right."""
