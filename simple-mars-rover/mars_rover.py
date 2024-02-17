@@ -16,6 +16,9 @@ class MarsRover:
             if move == "M":
                 self.y_coordinate += 1
             elif move == "R":
-                self.facing = "E"
+                if self.facing == "N":
+                    self.facing = "E"
+                elif self.facing == "E":
+                    self.facing = "S"
 
         return f"0:{self.y_coordinate}:{self.facing}"
