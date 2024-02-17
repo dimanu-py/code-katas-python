@@ -12,6 +12,10 @@ class Orientation(ABC):
     def left(self, ) -> "Orientation":
         """Rotate the rover 90 degrees to the left."""
 
+    @abstractmethod
+    def forward(self, x: int, y: int) -> (int, int):
+        """Move the rover forward in the facing direction."""
+
 
 class North(Orientation):
     """Class to represent the rover facing North."""
