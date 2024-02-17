@@ -20,7 +20,7 @@ class MarsRover:
             elif move == "L":
                 self.rotate_left()
 
-        return f"0:{self.y_coordinate}:{self.facing}"
+        return f"{self.x_coordinate}:{self.y_coordinate}:{self.facing}"
 
     def rotate_right(self) -> None:
         """Rotate the rover 90 degrees to the right."""

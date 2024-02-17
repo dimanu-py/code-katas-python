@@ -33,9 +33,10 @@ class TestMarsRover:
 
     @pytest.mark.parametrize(
         "command, expected_position",
-        [("R", "0:0:E"), ("RR", "0:0:S"), ("RRR", "0:0:W"), ("RRRR", "0:0:N")]
+        [("R", "0:0:E"), ("RR", "0:0:S"), ("RRR", "0:0:W"), ("RRRR", "0:0:N"),
+         ("L", "0:0:W"), ("LL", "0:0:S"), ("LLL", "0:0:E"), ("LLLL", "0:0:N")]
     )
-    def test_right_command_rotates_rover_clockwise(self, rover: MarsRover, command: str, expected_position: str) -> None:
+    def test_rotate_command_modifies_facing_direction(self, rover: MarsRover, command: str, expected_position: str) -> None:
 
         position = rover.execute(command)
 
@@ -43,9 +44,9 @@ class TestMarsRover:
 
     @pytest.mark.parametrize(
         "command, expected_position",
-        [("L", "0:0:W"), ("LL", "0:0:S"), ("LLL", "0:0:E"), ("LLLL", "0:0:N")]
+        [("RM", "1:0:E"), ("RMM", "2:0:E"), ("MRRM", "0:0:S"), ("MMMRMMRM", "2:2:S"), ("MRMLLM", "0:1:W"), ("MMRMMLM", "2:3:N")]
     )
-    def test_left_command_rotates_rover_counter_clockwise(self, rover: MarsRover, command: str, expected_position: str) -> None:
+    def test_rotate_and_move_correctly(self, rover: MarsRover, command: str, expected_position: str) -> None:
 
         position = rover.execute(command)
 
