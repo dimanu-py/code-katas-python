@@ -3,17 +3,15 @@
 class Coordinates:
 
     def __init__(self, x: int, y: int) -> None:
-        self.x = x
-        self.y = y
+        self.x = self._wrap_around(x)
+        self.y = self._wrap_around(y)
 
-        if self.x < 0:
-            self.x = 9
+    @staticmethod
+    def _wrap_around(coordinate: int) -> int:
+        """
+        Wrap around the grid when the rover goes outside the grid.
 
-        if self.y < 0:
-            self.y = 9
-
-        if self.x > 9:
-            self.x = 0
-
-        if self.y > 9:
-            self.y = 0
+        This is, when the rover goes outside the grid, it will appear on the opposite side.
+        For example, if the rover goes outside the grid at the top, it will appear at the bottom.
+        """
+        return coordinate % 10
