@@ -9,9 +9,6 @@ class MarsRover:
 
     def execute(self, command: str) -> str:
 
-        if command == "":
-            return f"{self.x_coordinate}:{self.y_coordinate}:{self.facing}"
-
         commands_map = {
             "M": self.move_straight,
             "R": self.rotate_right,

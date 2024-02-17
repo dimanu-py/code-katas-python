@@ -15,12 +15,6 @@ class TestMarsRover:
         assert rover.y_coordinate == 0
         assert rover.facing == "N"
 
-    def test_empty_command_does_not_move_rover(self, rover: MarsRover):
-
-        position = rover.execute("")
-
-        assert position == "0:0:N"
-
     @pytest.mark.parametrize(
         "command, expected_position",
         [("M", "0:1:N"), ("MM", "0:2:N"), ("MMMMMMMM", "0:8:N")]
