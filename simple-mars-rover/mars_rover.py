@@ -10,7 +10,7 @@ class MarsRover:
     def execute(self, command: str) -> str:
 
         if command == "":
-            return "0:0:N"
+            return f"{self.x_coordinate}:{self.y_coordinate}:{self.facing}"
 
         for move in command:
             if move == "M":
