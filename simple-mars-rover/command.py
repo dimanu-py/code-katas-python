@@ -18,3 +18,13 @@ class MoveForward(Command):
 
     def execute(self) -> None:
         self.rover.move_forward()
+
+
+class RotateRight(Command):
+    """Rotate the rover 90 degrees to the right."""
+
+    def __init__(self, rover: MarsRover) -> None:
+        self.rover = rover
+
+    def execute(self) -> None:
+        self.rover.rotate_right()
