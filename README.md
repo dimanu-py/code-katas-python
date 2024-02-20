@@ -18,6 +18,7 @@ The project will have one folder per kata. Each folder will contain the followin
 2. [Leap Year](https://github.com/dimanu-py/code-katas-python/tree/main/leap-year) (solved 30th December 2023)
 3. [Roman Numerals](https://github.com/dimanu-py/code-katas-python/tree/main/roman-numerals) (solved 10th February 2024)
 4. [Gilded Rose](https://github.com/dimanu-py/code-katas-python/tree/main/gilded-rose) (solved 16th February 2024)
+5. [Simple Mars Rover](https://github.com/dimanu-py/code-katas-python/tree/main/simple-mars-rover) (solved 19th February 2024)
 
 ## Resources
 
