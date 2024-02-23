@@ -1,5 +1,12 @@
 # 🐝 FizzBuzz Kata 🐝
 
+## Resources
+
+These requirements and the step to step on how to start applying TDD can be found in Codurance website linked below.
+
+[![Web](https://img.shields.io/badge/Codurance-Website-14a1f0?style=for-the-badge&logo=web&logoColor=white&labelColor=101010)](https://www.codurance.com/katas/fizzbuzz)
+
+
 ## Description
   
 Write a function that:

@@ -1,5 +1,11 @@
 # :robot: Simple Mars Rover Kata :robot:
 
+## Resources
+
+These instructions where extracted from Codurance Kata Catalogue. You can find the original instructions in the link below.
+
+[![Web](https://img.shields.io/badge/Codurance-Website-14a1f0?style=for-the-badge&logo=web&logoColor=white&labelColor=101010)](https://www.codurance.com/katas/simple-mars-rover)
+
 ## Description
 
 A squad of robotic rovers are to be landed by NASA on a plateau on Mars.

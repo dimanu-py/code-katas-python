@@ -1,4 +1,4 @@
-# Credits
+# Resources
 
 These requirements and the initial state of the code are extracted from the original GitHub repository
 
