@@ -34,18 +34,20 @@ class TennisGame1:
         else:
             score += "-"
             temp_score = self.player_two_score
-        score += {
-            0: "Love",
-            1: "Fifteen",
-            2: "Thirty",
-            3: "Forty",
-        }[temp_score]
+        score = self.score_to_string(score, temp_score)
 
         if 2 == 1:
             temp_score = self.player_one_score
         else:
             score += "-"
             temp_score = self.player_two_score
+        score = self.score_to_string(score, temp_score)
+
+        return score
+
+    @staticmethod
+    def score_to_string(score: str, temp_score: int) -> str:
+
         score += {
             0: "Love",
             1: "Fifteen",
