@@ -17,7 +17,6 @@ class TennisGame1:
             self.player_two_score += POINT
 
     def score(self) -> str:
-        score = ""
 
         if self.player_one_score == self.player_two_score:
             score = self.get_tied_score()
