@@ -19,12 +19,10 @@ class TennisGame1:
     def score(self) -> str:
 
         if self.player_one_score == self.player_two_score:
-            score = self.get_tied_score()
+            return self.get_tied_score()
         elif self.player_one_score >= MINIMUM_DEUCE_POINTS or self.player_two_score >= MINIMUM_DEUCE_POINTS:
-            score = self.get_break_point_score()
-        else:
-            score = self.get_score_during_game()
-        return score
+            return self.get_break_point_score()
+        return self.get_score_during_game()
 
     def get_score_during_game(self) -> str:
 
