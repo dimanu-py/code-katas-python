@@ -24,12 +24,12 @@ class TennisGame1:
         elif self.player_one_score >= MINIMUM_DEUCE_POINTS or self.player_two_score >= MINIMUM_DEUCE_POINTS:
             score = self.get_break_point_score()
         else:
-            score = self.get_score_during_game(score)
+            score = self.get_score_during_game()
         return score
 
-    def get_score_during_game(self, score: str) -> str:
+    def get_score_during_game(self) -> str:
 
-        score = self.score_to_string(score, self.player_one_score)
+        score = self.score_to_string("", self.player_one_score)
         score += "-"
         score = self.score_to_string(score, self.player_two_score)
 
