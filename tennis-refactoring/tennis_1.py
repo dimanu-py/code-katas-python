@@ -1,3 +1,4 @@
+POINT = 1
 
 
 class TennisGame1:
@@ -10,9 +11,9 @@ class TennisGame1:
 
     def won_point(self, player_name: str) -> None:
         if player_name == self.player_one_name:
-            self.player_one_score += 1
+            self.player_one_score += POINT
         else:
-            self.player_two_score += 1
+            self.player_two_score += POINT
 
     def score(self) -> str:
         score = ""
