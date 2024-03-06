@@ -29,14 +29,15 @@ class TennisGame1:
 
     def get_score_during_game(self) -> str:
 
-        score = self.score_to_string("", self.player_one_score)
+        score = self.score_to_string(self.player_one_score)
         score += "-"
-        score = self.score_to_string(score, self.player_two_score)
+        score += self.score_to_string(self.player_two_score)
 
         return score
 
     @staticmethod
-    def score_to_string(score: str, temp_score: int) -> str:
+    def score_to_string(temp_score: int) -> str:
+        score = ""
 
         score += {
             0: "Love",
