@@ -22,7 +22,7 @@ class TennisGame1:
         if self.player_one_score == self.player_two_score:
             score = self.get_tied_score()
         elif self.player_one_score >= MINIMUM_DEUCE_POINTS or self.player_two_score >= MINIMUM_DEUCE_POINTS:
-            score = self.get_break_point_score(score)
+            score = self.get_break_point_score()
         else:
             for i in range(1,3):
                 if i == 1:
@@ -38,7 +38,8 @@ class TennisGame1:
                 }[temp_score]
         return score
 
-    def get_break_point_score(self, score: str) -> str:
+    def get_break_point_score(self) -> str:
+
         score_difference = self.player_one_score - self.player_two_score
         if score_difference == 1:
             score = f"Advantage {self.player_one_name}"
@@ -48,6 +49,7 @@ class TennisGame1:
             score = f"Win for {self.player_one_name}"
         else:
             score = f"Win for {self.player_two_name}"
+
         return score
 
     def get_tied_score(self) -> str:
