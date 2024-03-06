@@ -44,10 +44,12 @@ class TennisGame1:
                 }[temp_score]
         return score
 
-    def get_tied_score(self):
+    def get_tied_score(self) -> str:
+
         score = {
             0: "Love-All",
             1: "Fifteen-All",
             2: "Thirty-All",
-        }.get(self.player_one_score, "Deuce")
-        return score
+        }
+
+        return score.get(self.player_one_score, "Deuce")
