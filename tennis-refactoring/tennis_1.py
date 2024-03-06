@@ -9,7 +9,7 @@ class TennisGame1:
         self.p2points = 0
 
     def won_point(self, playerName: str) -> None:
-        if playerName == "player1":
+        if playerName == self.player1Name:
             self.p1points += 1
         else:
             self.p2points += 1
@@ -28,11 +28,11 @@ class TennisGame1:
             if (minusResult == 1):
                 result = f"Advantage {self.player1Name}"
             elif (minusResult == -1):
-                result ="Advantage player2"
+                result = f"Advantage {self.player2Name}"
             elif (minusResult >= 2):
                 result = f"Win for {self.player1Name}"
             else:
-                result ="Win for player2"
+                result = f"Win for {self.player2Name}"
         else:
             for i in range(1,3):
                 if (i == 1):
