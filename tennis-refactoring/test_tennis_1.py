@@ -59,3 +59,16 @@ def play_game(TennisGame, p1Points, p2Points, p1Name, p2Name):
 def test_get_score_game1(p1Points, p2Points, score, p1Name, p2Name):
     game = play_game(TennisGame1, p1Points, p2Points, p1Name, p2Name)
     assert score == game.score()
+
+
+def test_display_player_one_if_has_won() -> None:
+    player_one = "Rafael Nadal"
+    player_two = "Roger Federer"
+    game = TennisGame1(player_one, player_two)
+
+    game.won_point(player_one)
+    game.won_point(player_one)
+    game.won_point(player_one)
+    game.won_point(player_one)
+
+    assert game.score() == "Win for Rafael Nadal"

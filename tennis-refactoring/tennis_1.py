@@ -26,11 +26,11 @@ class TennisGame1:
         elif (self.p1points >= 4 or self.p2points >= 4):
             minusResult = self.p1points-self.p2points
             if (minusResult == 1):
-                result ="Advantage player1"
+                result = f"Advantage {self.player1Name}"
             elif (minusResult == -1):
                 result ="Advantage player2"
             elif (minusResult >= 2):
-                result = "Win for player1"
+                result = f"Win for {self.player1Name}"
             else:
                 result ="Win for player2"
         else:
