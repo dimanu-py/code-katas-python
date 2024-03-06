@@ -2,48 +2,48 @@
 
 class TennisGame1:
 
-    def __init__(self, player1Name: str, player2Name: str) -> None:
-        self.player1Name = player1Name
-        self.player2Name = player2Name
-        self.p1points = 0
-        self.p2points = 0
+    def __init__(self, player_one_name: str, player_two_name: str) -> None:
+        self.player_one_name = player_one_name
+        self.player_two_name = player_two_name
+        self.player_one_score = 0
+        self.player_two_score = 0
 
-    def won_point(self, playerName: str) -> None:
-        if playerName == self.player1Name:
-            self.p1points += 1
+    def won_point(self, player_name: str) -> None:
+        if player_name == self.player_one_name:
+            self.player_one_score += 1
         else:
-            self.p2points += 1
+            self.player_two_score += 1
 
     def score(self) -> str:
-        result = ""
-        tempScore = 0
-        if (self.p1points == self.p2points):
-            result = {
+        score = ""
+        temp_score = 0
+        if (self.player_one_score == self.player_two_score):
+            score = {
                 0 : "Love-All",
                 1 : "Fifteen-All",
                 2 : "Thirty-All",
-            }.get(self.p1points, "Deuce")
-        elif (self.p1points >= 4 or self.p2points >= 4):
-            minusResult = self.p1points-self.p2points
-            if (minusResult == 1):
-                result = f"Advantage {self.player1Name}"
-            elif (minusResult == -1):
-                result = f"Advantage {self.player2Name}"
-            elif (minusResult >= 2):
-                result = f"Win for {self.player1Name}"
+            }.get(self.player_one_score, "Deuce")
+        elif (self.player_one_score >= 4 or self.player_two_score >= 4):
+            score_difference = self.player_one_score - self.player_two_score
+            if (score_difference == 1):
+                score = f"Advantage {self.player_one_name}"
+            elif (score_difference == -1):
+                score = f"Advantage {self.player_two_name}"
+            elif (score_difference >= 2):
+                score = f"Win for {self.player_one_name}"
             else:
-                result = f"Win for {self.player2Name}"
+                score = f"Win for {self.player_two_name}"
         else:
             for i in range(1,3):
                 if (i == 1):
-                    tempScore = self.p1points
+                    temp_score = self.player_one_score
                 else:
-                    result+="-"
-                    tempScore = self.p2points
-                result += {
+                    score+="-"
+                    temp_score = self.player_two_score
+                score += {
                     0 : "Love",
                     1 : "Fifteen",
                     2 : "Thirty",
                     3 : "Forty",
-                }[tempScore]
-        return result
+                }[temp_score]
+        return score
