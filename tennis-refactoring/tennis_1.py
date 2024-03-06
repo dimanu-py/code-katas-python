@@ -29,18 +29,29 @@ class TennisGame1:
 
     def get_score_during_game(self, score: str) -> str:
 
-        for i in range(1, 3):
-            if i == 1:
-                temp_score = self.player_one_score
-            else:
-                score += "-"
-                temp_score = self.player_two_score
-            score += {
-                0: "Love",
-                1: "Fifteen",
-                2: "Thirty",
-                3: "Forty",
-            }[temp_score]
+        if 1 == 1:
+            temp_score = self.player_one_score
+        else:
+            score += "-"
+            temp_score = self.player_two_score
+        score += {
+            0: "Love",
+            1: "Fifteen",
+            2: "Thirty",
+            3: "Forty",
+        }[temp_score]
+
+        if 2 == 1:
+            temp_score = self.player_one_score
+        else:
+            score += "-"
+            temp_score = self.player_two_score
+        score += {
+            0: "Love",
+            1: "Fifteen",
+            2: "Thirty",
+            3: "Forty",
+        }[temp_score]
 
         return score
 
