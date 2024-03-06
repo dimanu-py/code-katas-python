@@ -24,18 +24,24 @@ class TennisGame1:
         elif self.player_one_score >= MINIMUM_DEUCE_POINTS or self.player_two_score >= MINIMUM_DEUCE_POINTS:
             score = self.get_break_point_score()
         else:
-            for i in range(1,3):
-                if i == 1:
-                    temp_score = self.player_one_score
-                else:
-                    score+="-"
-                    temp_score = self.player_two_score
-                score += {
-                    0 : "Love",
-                    1 : "Fifteen",
-                    2 : "Thirty",
-                    3 : "Forty",
-                }[temp_score]
+            score = self.get_score_during_game(score)
+        return score
+
+    def get_score_during_game(self, score: str) -> str:
+
+        for i in range(1, 3):
+            if i == 1:
+                temp_score = self.player_one_score
+            else:
+                score += "-"
+                temp_score = self.player_two_score
+            score += {
+                0: "Love",
+                1: "Fifteen",
+                2: "Thirty",
+                3: "Forty",
+            }[temp_score]
+
         return score
 
     def get_break_point_score(self) -> str:
