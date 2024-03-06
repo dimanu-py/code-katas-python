@@ -18,11 +18,7 @@ class TennisGame1:
         score = ""
 
         if (self.player_one_score == self.player_two_score):
-            score = {
-                0 : "Love-All",
-                1 : "Fifteen-All",
-                2 : "Thirty-All",
-            }.get(self.player_one_score, "Deuce")
+            score = self.get_tied_score(score)
         elif (self.player_one_score >= 4 or self.player_two_score >= 4):
             score_difference = self.player_one_score - self.player_two_score
             if (score_difference == 1):
@@ -35,7 +31,7 @@ class TennisGame1:
                 score = f"Win for {self.player_two_name}"
         else:
             for i in range(1,3):
-                if (i == 1):
+                if i == 1:
                     temp_score = self.player_one_score
                 else:
                     score+="-"
@@ -46,4 +42,12 @@ class TennisGame1:
                     2 : "Thirty",
                     3 : "Forty",
                 }[temp_score]
+        return score
+
+    def get_tied_score(self, score):
+        score = {
+            0: "Love-All",
+            1: "Fifteen-All",
+            2: "Thirty-All",
+        }.get(self.player_one_score, "Deuce")
         return score
