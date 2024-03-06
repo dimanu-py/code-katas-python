@@ -17,15 +17,15 @@ class TennisGame1:
     def score(self) -> str:
         score = ""
 
-        if (self.player_one_score == self.player_two_score):
+        if self.player_one_score == self.player_two_score:
             score = self.get_tied_score()
-        elif (self.player_one_score >= 4 or self.player_two_score >= 4):
+        elif self.player_one_score >= 4 or self.player_two_score >= 4:
             score_difference = self.player_one_score - self.player_two_score
-            if (score_difference == 1):
+            if score_difference == 1:
                 score = f"Advantage {self.player_one_name}"
-            elif (score_difference == -1):
+            elif score_difference == -1:
                 score = f"Advantage {self.player_two_name}"
-            elif (score_difference >= 2):
+            elif score_difference >= 2:
                 score = f"Win for {self.player_one_name}"
             else:
                 score = f"Win for {self.player_two_name}"
