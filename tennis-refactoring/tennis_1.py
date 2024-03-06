@@ -1,3 +1,4 @@
+MINIMUM_DEUCE_POINTS = 4
 POINT = 1
 
 
@@ -20,7 +21,7 @@ class TennisGame1:
 
         if self.player_one_score == self.player_two_score:
             score = self.get_tied_score()
-        elif self.player_one_score >= 4 or self.player_two_score >= 4:
+        elif self.player_one_score >= MINIMUM_DEUCE_POINTS or self.player_two_score >= MINIMUM_DEUCE_POINTS:
             score_difference = self.player_one_score - self.player_two_score
             if score_difference == 1:
                 score = f"Advantage {self.player_one_name}"
