@@ -16,7 +16,7 @@ class TennisGame1:
 
     def score(self) -> str:
         score = ""
-        temp_score = 0
+
         if (self.player_one_score == self.player_two_score):
             score = {
                 0 : "Love-All",
