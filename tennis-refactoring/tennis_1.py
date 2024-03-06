@@ -20,9 +20,12 @@ class TennisGame1:
 
         if self.is_deuce():
             return self.get_tied_score()
-        elif self.player_one_score >= MINIMUM_DEUCE_POINTS or self.player_two_score >= MINIMUM_DEUCE_POINTS:
+        elif self.is_advantage():
             return self.get_break_point_score()
         return self.get_score_during_game()
+
+    def is_advantage(self) -> bool:
+        return self.player_one_score >= MINIMUM_DEUCE_POINTS or self.player_two_score >= MINIMUM_DEUCE_POINTS
 
     def is_deuce(self) -> bool:
         return self.player_one_score == self.player_two_score
