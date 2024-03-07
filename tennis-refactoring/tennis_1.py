@@ -32,9 +32,9 @@ class TennisGame1:
 
     def get_score_during_game(self) -> str:
 
-        score = self.score_to_string(self.player_one_score)
-        score += "-"
-        return score + self.score_to_string(self.player_two_score)
+        score_player_one = self.score_to_string(self.player_one_score)
+        score_player_two = self.score_to_string(self.player_two_score)
+        return f"{score_player_one}-{score_player_two}"
 
     @staticmethod
     def score_to_string(temp_score: int) -> str:
