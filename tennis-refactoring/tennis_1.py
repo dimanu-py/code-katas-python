@@ -4,6 +4,13 @@ POINT = 1
 
 class TennisGame1:
 
+    STANDARD_SCORE = {
+        0: "Love",
+        1: "Fifteen",
+        2: "Thirty",
+        3: "Forty",
+    }
+
     TIED_SCORE = {
         0: "Love-All",
         1: "Fifteen-All",
@@ -42,18 +49,8 @@ class TennisGame1:
         score_player_two = self.score_to_string(self.player_two_score)
         return f"{score_player_one}-{score_player_two}"
 
-    @staticmethod
-    def score_to_string(temp_score: int) -> str:
-        score = ""
-
-        score += {
-            0: "Love",
-            1: "Fifteen",
-            2: "Thirty",
-            3: "Forty",
-        }[temp_score]
-
-        return score
+    def score_to_string(self, temp_score: int) -> str:
+        return self.STANDARD_SCORE[temp_score]
 
     def get_break_point_score(self) -> str:
 
