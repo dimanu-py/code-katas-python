@@ -4,6 +4,12 @@ POINT = 1
 
 class TennisGame1:
 
+    TIED_SCORE = {
+        0: "Love-All",
+        1: "Fifteen-All",
+        2: "Thirty-All",
+    }
+
     def __init__(self, player_one_name: str, player_two_name: str) -> None:
         self.player_one_name = player_one_name
         self.player_two_name = player_two_name
@@ -64,11 +70,4 @@ class TennisGame1:
         return score
 
     def get_tied_score(self) -> str:
-
-        score = {
-            0: "Love-All",
-            1: "Fifteen-All",
-            2: "Thirty-All",
-        }
-
-        return score.get(self.player_one_score, "Deuce")
+        return self.TIED_SCORE.get(self.player_one_score, "Deuce")
