@@ -18,7 +18,7 @@ class TennisGame:
     def score(self) -> str:
         if (self.points_player_one < 4 and self.points_player_two < 4) and (self.points_player_one + self.points_player_two < 6):
             score = POINTS_NAME[self.points_player_one]
-            return score + "-All" if self.is_deuce() else score + "-" + POINTS_NAME[self.points_player_two]
+            return f"{score}-All" if self.is_deuce() else f"{score}-{POINTS_NAME[self.points_player_two]}"
         elif self.is_deuce():
             return "Deuce"
         else:
