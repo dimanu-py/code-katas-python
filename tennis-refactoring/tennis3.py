@@ -29,4 +29,4 @@ class TennisGame:
         return "Advantage " + headed_player if self.is_advantage() else "Win for " + headed_player
 
     def is_advantage(self) -> bool:
-        return (self.points_player_one - self.points_player_two) * (self.points_player_one - self.points_player_two) == 1
+        return abs(self.points_player_one - self.points_player_two) == 1
