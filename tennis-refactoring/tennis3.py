@@ -26,5 +26,7 @@ class TennisGame:
 
     def break_point(self) -> str:
         headed_player = self.player_one_name if self.points_player_one > self.points_player_two else self.player_two_name
-        return "Advantage " + headed_player if ((self.points_player_one - self.points_player_two) * (
-                    self.points_player_one - self.points_player_two) == 1) else "Win for " + headed_player
+        return "Advantage " + headed_player if self.is_advantage() else "Win for " + headed_player
+
+    def is_advantage(self) -> bool:
+        return (self.points_player_one - self.points_player_two) * (self.points_player_one - self.points_player_two) == 1
