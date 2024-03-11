@@ -18,11 +18,14 @@ class TennisGame:
         if (self.points_player_one < 4 and self.points_player_two < 4) and (self.points_player_one + self.points_player_two < 6):
             points_name = ["Love", "Fifteen", "Thirty", "Forty"]
             score = points_name[self.points_player_one]
-            return score + "-All" if (self.points_player_one == self.points_player_two) else score + "-" + points_name[self.points_player_two]
-        elif self.points_player_one == self.points_player_two:
+            return score + "-All" if (self.is_deuce()) else score + "-" + points_name[self.points_player_two]
+        elif self.is_deuce():
             return "Deuce"
         else:
             return self.break_point()
+
+    def is_deuce(self) -> bool:
+        return self.points_player_one == self.points_player_two
 
     def break_point(self) -> str:
         headed_player = self.player_one_name if self.points_player_one > self.points_player_two else self.player_two_name
