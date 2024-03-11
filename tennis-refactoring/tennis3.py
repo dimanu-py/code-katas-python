@@ -20,7 +20,7 @@ class TennisGame:
             score = points_name[self.points_player_one]
             return score + "-All" if (self.points_player_one == self.points_player_two) else score + "-" + points_name[self.points_player_two]
         else:
-            if (self.points_player_one == self.points_player_two):
+            if self.points_player_one == self.points_player_two:
                 return "Deuce"
             score = self.player_one_name if self.points_player_one > self.points_player_two else self.player_two_name
             return "Advantage " + score if ((self.points_player_one - self.points_player_two) * (self.points_player_one - self.points_player_two) == 1) else "Win for " + score
