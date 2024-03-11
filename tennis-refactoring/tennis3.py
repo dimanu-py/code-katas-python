@@ -16,13 +16,16 @@ class TennisGame:
             self.points_player_two += 1
 
     def score(self) -> str:
-        if (self.points_player_one < 4 and self.points_player_two < 4) and (self.points_player_one + self.points_player_two < 6):
+        if self.is_not_end_game():
             score = POINTS_NAME[self.points_player_one]
             return f"{score}-All" if self.is_deuce() else f"{score}-{POINTS_NAME[self.points_player_two]}"
         elif self.is_deuce():
             return "Deuce"
         else:
             return self.break_point()
+
+    def is_not_end_game(self) -> bool:
+        return (self.points_player_one < 4 and self.points_player_two < 4) and (self.points_player_one + self.points_player_two < 6)
 
     def is_deuce(self) -> bool:
         return self.points_player_one == self.points_player_two
