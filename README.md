@@ -20,6 +20,7 @@ The project will have one folder per kata. Each folder will contain the followin
 4. [Gilded Rose](https://github.com/dimanu-py/code-katas-python/tree/main/gilded-rose) (solved 16th February 2024)
 5. [Simple Mars Rover](https://github.com/dimanu-py/code-katas-python/tree/main/simple-mars-rover) (solved 19th February 2024)
 6. [Anagrams](https://github.com/dimanu-py/code-katas-python/tree/main/anagrams) (solved 23th February 2024)
+7. [Tennis Refactoring](https://github.com/dimanu-py/code-katas-python/tree/main/tennis-refactoring) (solved 4th March 2024)
 
 ## Resources
 
